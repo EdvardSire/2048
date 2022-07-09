@@ -14,7 +14,7 @@ def init(GRID):
 
 
 def insertNumber(GRID):
-    # Grabs the indexes of every 0, chooses a random one, then changes the index to either 2 or 4
+    # Grabs the indexes of every 0, chooses a random pair, then changes the index to either 2 or 4
     item = random.choice(np.argwhere(GRID == 0)) # try catch block for when the user looses
     GRID[item[0], item[1]] = random.choice([2,4])
 
