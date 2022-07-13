@@ -10,6 +10,7 @@ def init(GRID):
     # Places two numbers on the board
     insertNumber(GRID)
     insertNumber(GRID)
+    show(GRID)
     print("init")
 
 
@@ -53,6 +54,7 @@ def left(GRID):
        insertNumber(tryGRID)
        return tryGRID
 
+
 def right(GRID):
     tryGRID = np.copy(GRID)
     for i in range(4):
@@ -77,6 +79,7 @@ def right(GRID):
        #np.copyto(GRID, tryGRID) # for the game
        insertNumber(tryGRID)
        return tryGRID
+
 
 def up(GRID):
     tryGRID = np.copy(GRID)
