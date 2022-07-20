@@ -1,22 +1,21 @@
 import numpy as np
 import random
+import timeit
 
 TEMPLATE = np.array([[0.135,  0.121,  0.102,  0.0999],
                      [0.0997, 0.088,  0.076,  0.0724],
                      [0.0606, 0.0562, 0.0371, 0.0161],
                      [0.0125, 0.0099, 0.0057, 0.0033]], dtype=np.float64)
 
-TEMPLATE2 = np.array([[0.135, 0.121],
-                      [0.102, 0.099]], dtype=np.float64)
+# TEMPLATE2 = np.array([[0.135, 0.121],
+#                       [0.102, 0.099]], dtype=np.float64)
 
-TEMPLATE3 = np.array([[0.135,  0.121,  0.102],
-                      [0.0999, 0.0997, 0.088],
-                      [0.076, 0.0724, 0.0606]], dtype=np.float64)
+# TEMPLATE3 = np.array([[0.135,  0.121,  0.102],
+#                       [0.0999, 0.0997, 0.088],
+#                       [0.076, 0.0724, 0.0606]], dtype=np.float64)
 
 ROWS = 4
-MAX_DEPTH = 5
-
-iterGRID = np.zeros((ROWS,ROWS), dtype=np.uint16)
+MAX_DEPTH = 6
 
 
 def show(sGRID):
@@ -180,14 +179,20 @@ def deep(n=0):
 
 
 ### START
+average = []
+for i in range(10):
+    start = timeit.default_timer()
+    iterGRID = np.zeros((ROWS,ROWS), dtype=np.uint16)
+    init()
+    bestGRID = np.copy(iterGRID)
 
-
-init()
-bestGRID = np.copy(iterGRID)
-
-for i in range(200):
-    deep()
+    for i in range(10):
+        deep()
     iterGRID = np.copy(bestGRID)
 
+    print(bestGRID)
+    print('Time: ', timeit.default_timer()-start)
+    average.append(timeit.default_timer()-start)
 
-print(bestGRID)
+print(average)
+
