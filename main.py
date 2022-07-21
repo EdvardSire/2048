@@ -51,7 +51,7 @@ def left(GRID):
         while j < n:
             if x[j] == x[j+1]:
                 x[j] = x[j]*2
-                x[j+1] = 0 
+                x[j+1] = 0
                 j += 1
             j += 1
 
@@ -77,7 +77,7 @@ def right(GRID):
         while j < n:
             if x[j] == x[j+1]:
                 x[j] = x[j]*2
-                x[j+1] = 0 
+                x[j+1] = 0
                 j += 1
             j += 1
 
@@ -103,7 +103,7 @@ def up(GRID):
         while j < n:
             if x[j] == x[j+1]:
                 x[j] = x[j]*2
-                x[j+1] = 0 
+                x[j+1] = 0
                 j += 1
             j += 1
 
@@ -122,14 +122,14 @@ def up(GRID):
 def down(GRID):
     tryGRID = np.copy(GRID)
     for i in range(ROWS):
-        x = tryGRID[:, i][::-1] # Grab the reverse of the i'th column 
+        x = tryGRID[:, i][::-1] # Grab the reverse of the i'th column
         x = x[x != 0] # Remove the 0's
         n = x.size-1
         j = 0
         while j < n:
             if x[j] == x[j+1]:
                 x[j] = x[j]*2
-                x[j+1] = 0 
+                x[j+1] = 0
                 j += 1
             j += 1
 
@@ -164,7 +164,7 @@ def deep(n=0):
             #print(n)
             #print(ln[i])
             #print(iterGRID)
-             
+
         except:
             #print("fail")
             continue
