@@ -3,24 +3,24 @@ from random import choice
 from numpy import multiply, argwhere
 
 
-def init(iterGRID):
-    insertRandomNumber(iterGRID)
-    insertRandomNumber(iterGRID)
-    print("init")
-    show(iterGRID)
-    print("")
+def init(GRID):
+    '''Initializes the board with two numbers'''
+    insertRandomNumber(GRID)
+    insertRandomNumber(GRID)
 
 
-def show(sGRID):
-    print(sGRID)
+def show(GRID):
+    '''Prints the grid'''
+    print(GRID)
 
 
 def evaluate(template, mulGRID):
+    '''Returns a float representing the "score" of a boardstate, higher is better'''
     return multiply(template, mulGRID).sum()
 
 
 def insertRandomNumber(GRID):
+    '''Inserts 2 or 4 randomly into an *empty* cell'''
     # Grabs the indexes of every 0, chooses a random pair, then changes the index to either 2 or 4
-    # try catch block for when the user looses
     item = choice(argwhere(GRID == 0))
     GRID[item[0], item[1]] = choice([2, 4])

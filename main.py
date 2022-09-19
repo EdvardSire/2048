@@ -1,7 +1,7 @@
 import numpy as np
 import timeit
 from move import move
-from misc import init, evaluate
+from misc import init, show, evaluate
 from vars import TEMPLATE, MAX_DEPTH, ROWS
 
 
@@ -36,6 +36,7 @@ for i in range(1):
     start = timeit.default_timer()
     iterGRID = np.zeros((ROWS, ROWS), dtype=np.uint16)
     init(iterGRID)
+    show(iterGRID)
     bestGRID = np.copy(iterGRID)
 
     for i in range(10):

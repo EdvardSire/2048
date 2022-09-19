@@ -1,4 +1,4 @@
-'''This module has functions to move a 2048 grid right, left, up and down'''
+'''This module can move a 2048 grid'''
 import numpy as np
 from vars import ROWS
 from misc import insertRandomNumber
@@ -9,6 +9,7 @@ class IllegalMove(Exception):
 
 
 def move(direction, GRID):
+    '''Moves a grid in a direction, if that moves does not move any pieces raise IllegalMove'''
     tryGRID = np.copy(GRID)
     for i in range(ROWS):
         match direction:
