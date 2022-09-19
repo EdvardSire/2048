@@ -8,8 +8,6 @@ class IllegalMove(Exception):
     pass
 
 
-
-
 def move(direction, GRID):
     tryGRID = np.copy(GRID)
     for i in range(ROWS):
@@ -26,7 +24,10 @@ def move(direction, GRID):
             case "right":
                 x = tryGRID[i][::-1]  # Grab i'th row reversed
                 x = x[x != 0]  # Remove the 0's
-        n = x.size-1 
+            case _:
+                x = np.ndarray(0)  # Only for pyright to stop erroring
+
+        n = x.size-1
         j = 0
 
         while j < n:
@@ -48,9 +49,8 @@ def move(direction, GRID):
             case "right":
                 tryGRID[i] = x[::-1]
     if np.array_equal(tryGRID, GRID) is True:
-        raise IllegalMove("error")
+        raise IllegalMove()
     else:
         # np.copyto(GRID, tryGRID) # for the game
         insertRandomNumber(tryGRID)
         return tryGRID
-

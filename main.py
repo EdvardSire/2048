@@ -1,7 +1,7 @@
 import numpy as np
 import timeit
 from move import move
-from misc import init, insertRandomNumber, show, evaluate
+from misc import init, evaluate
 from vars import TEMPLATE, MAX_DEPTH, ROWS
 
 
@@ -14,15 +14,14 @@ def deep(n=0):
     global iterGRID
     localGRID = np.copy(iterGRID)
 
-    for i in range(4):
+    for i in range(4): # Loops over all moves, and those moves loops over moves
         try:
             iterGRID = move(l[i], localGRID)  # Are there any legal moves
 
         except:
-            # print("fail")
-            continue
+            continue # Go to next move
 
-        else:
+        else: # No exception
             if evaluate(TEMPLATE, iterGRID) > evaluate(TEMPLATE, bestGRID):
                 np.copyto(bestGRID, iterGRID)
             if MAX_DEPTH > n:
