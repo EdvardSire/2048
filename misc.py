@@ -1,4 +1,4 @@
-'''This module has a function to insert a random number into a 2048 grid'''
+'''This module inserts random numbers, evaluates and shows prints a 2048 grid'''
 from random import choice
 from numpy import multiply, argwhere
 
