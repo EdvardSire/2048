@@ -8,20 +8,19 @@ from vars import TEMPLATE, MAX_DEPTH, ROWS
 l = ["left", "right", "up", "down"]
 
 
-
 def deep(n=0):
     global depth
     global iterGRID
     localGRID = np.copy(iterGRID)
 
-    for i in range(4): # Loops over all moves, and those moves loops over moves
+    for i in range(4):  # Loops over all moves, and those moves loops over moves
         try:
             iterGRID = move(l[i], localGRID)  # Are there any legal moves
 
         except:
-            continue # Go to next move
+            continue  # Go to next move
 
-        else: # No exception
+        else:  # No exception
             if evaluate(TEMPLATE, iterGRID) > evaluate(TEMPLATE, bestGRID):
                 np.copyto(bestGRID, iterGRID)
             if MAX_DEPTH > n:
