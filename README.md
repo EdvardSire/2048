@@ -4,7 +4,7 @@ main.py plays a given amount of moves from a given amout of iterations based on 
 ## Example output
 
 <p>
-<img src="img/example.png">
+<img src="img/example.png" width="50%">
 </p>
 The current highscore is 4096
 
